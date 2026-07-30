@@ -1,0 +1,35 @@
+{
+  "name": "xianren-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "artplayer": "^5.2.3",
+    "axios": "^1.11.0",
+    "core-js": "^3.8.3",
+    "element-ui": "^2.15.14",
+    "flv.js": "^1.6.2",
+    "hls.js": "^1.6.7",
+    "prismjs": "^1.30.0",
+    "vue": "^2.6.14",
+    "vue-clipboard2": "^0.3.3",
+    "vue-flv-player": "^1.0.3",
+    "vue-meta": "^2.4.0",
+    "vue-router": "^3.6.5",
+    "vue-virtual-scroller": "^1.1.2",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

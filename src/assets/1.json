@@ -1,0 +1,303 @@
+[
+  {
+    "title": "XIANREN官网",
+    "column": 2,
+    "is_show": true,
+    "text": "PHP版本1.21",
+    "vue_text": "Vue版本1.42（注意：未来PHP页面将被废弃，不等于不使用PHP服务器）",
+    "vue_version": "1.42",
+    "version": "1.21",
+    "BackgroundVideo": "/video/3.webm",
+    "marqueeText": "富强 民主 文明 和谐 自由 平等 公正 法治 爱国 敬业 诚信 友善",
+    "object": [
+      {
+        "column": 2,
+        "name": "学科（部分引用站外知识）",
+        "color": "var(--color3B)",
+        "background_color": "",
+        "object": [
+          {
+            "id": 1,
+            "router": false,
+            "target": true,
+            "name": "英语",
+            "url": "./page/英语",
+            "params": { "url": "" }
+          },
+          {
+            "id": 2,
+            "router": false,
+            "target": true,
+            "name": "物理",
+            "url": "./page/物理",
+            "params": { "url": "" }
+          },
+          {
+            "id": 3,
+            "router": false,
+            "target": true,
+            "name": "英语_Vue版本",
+            "url": "PaperView",
+            "params": { "url": "/page/英语/index.json" }
+          }
+        ]
+      },
+      {
+        "column": 3,
+        "name": "英语单词（数据来源AI生成）",
+        "color": "var(--color3B)",
+        "background_color": "",
+        "object": [
+          {
+            "id": 1,
+            "router": false,
+            "target": true,
+            "name": "英语单词",
+            "url": "./page/英语单词",
+            "params": { "url": "" }
+          },
+          {
+            "id": 2,
+            "router": false,
+            "target": true,
+            "name": "常用单词",
+            "url": "./page/常用单词",
+            "params": { "url": "" }
+          },
+          {
+            "id": 3,
+            "router": false,
+            "target": true,
+            "name": "中考单词",
+            "url": "./page/中考单词",
+            "params": { "url": "" }
+          },
+          {
+            "id": 4,
+            "router": true,
+            "target": true,
+            "name": "英语单词_Vue版本",
+            "url": "PaperView",
+            "params": { "url": "/page/英语单词/index.json" }
+          },
+          {
+            "id": 5,
+            "router": true,
+            "target": true,
+            "name": "常用单词_Vue版本",
+            "url": "PaperView",
+            "params": { "url": "/page/常用单词/index.json" }
+          },
+          {
+            "id": 6,
+            "router": true,
+            "target": true,
+            "name": "中考单词_Vue版本",
+            "url": "PaperView",
+            "params": { "url": "/page/中考单词/index.json" }
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "编程（Markdown格式）",
+        "color": "var(--color3B)",
+        "background_color": "",
+        "object": [
+          {
+            "id": 1,
+            "router": false,
+            "target": true,
+            "name": "C语言",
+            "url": "./page/C语言",
+            "params": { "url": "" }
+          },
+          {
+            "id": 2,
+            "router": true,
+            "target": true,
+            "name": "C语言_Vue版本",
+            "url": "PaperView",
+            "params": { "url": "/page/C语言/index.json" }
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "菜品",
+        "color": "var(--color3B)",
+        "background_color": "",
+        "object": [
+          {
+            "id": 1,
+            "router": true,
+            "target": true,
+            "name": "卤菜",
+            "url": "PaperView",
+            "params": { "url": "/page/卤菜/index.json" }
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "IQ测试（全部外站链接）",
+        "color": "red",
+        "background_color": "",
+        "object": [
+          {
+            "id": 1,
+            "router": false,
+            "target": true,
+            "name": "免费IQ测试",
+            "url": "https://www.free-iqtest.net",
+            "params": { "url": "" }
+          },
+          {
+            "id": 2,
+            "router": false,
+            "target": true,
+            "name": "官方IQ测试",
+            "url": "https://officialiqtests.com",
+            "params": { "url": "" }
+          },
+          {
+            "id": 3,
+            "router": false,
+            "target": true,
+            "name": "33IQ",
+            "url": "https://www.33iq.com/quiz/",
+            "params": { "url": "" }
+          },
+          {
+            "id": 4,
+            "router": false,
+            "target": true,
+            "name": "测智网",
+            "url": "https://iqeq.com.cn",
+            "params": { "url": "" }
+          }
+        ]
+      },
+      {
+        "column": 2,
+        "name": "其他（大部分外站链接，部分站内链接）",
+        "color": "red",
+        "background_color": "",
+        "object": [
+          {
+            "id": 1,
+            "router": false,
+            "target": true,
+            "name": "太阳系",
+            "url": "https://eyes.nasa.gov/apps/solar-system/",
+            "params": { "url": "" }
+          },
+          {
+            "id": 2,
+            "router": false,
+            "target": true,
+            "name": "钢琴",
+            "url": "https://www.xiwnn.com/piano/",
+            "params": { "url": "" }
+          },
+          {
+            "id": 3,
+            "router": false,
+            "target": true,
+            "name": "M3U8在线下载工具",
+            "url": "https://www.yeyulingfeng.com/tools/m3u8-downloader/",
+            "params": { "url": "" }
+          },
+          {
+            "id": 4,
+            "router": false,
+            "target": true,
+            "name": "在线转换视频文件",
+            "url": "https://www.aconvert.com/cn/video/",
+            "params": { "url": "" }
+          },
+          {
+            "id": 5,
+            "router": false,
+            "target": true,
+            "name": "MD转HTML",
+            "url": "https://www.alltoall.net/md_html/",
+            "params": { "url": "" }
+          },
+          {
+            "id": 6,
+            "router": false,
+            "target": true,
+            "name": "LOL韩服战绩查询",
+            "url": "https://www.op.gg/leaderboards/tier",
+            "params": { "url": "" }
+          },
+          {
+            "id": 7,
+            "router": false,
+            "target": true,
+            "name": "准星颜色",
+            "url": "./page/准星颜色",
+            "params": { "url": "" }
+          },
+          {
+            "id": 8,
+            "router": false,
+            "target": true,
+            "name": "国际音标",
+            "url": "https://www.xdf.cn/zhuanti/bd-phonetic-alphabet-card/index.html",
+            "params": { "url": "" }
+          },
+          {
+            "id": 9,
+            "router": false,
+            "target": true,
+            "name": "DeepSeek",
+            "url": "https://www.deepseek.com",
+            "params": { "url": "" }
+          },
+          {
+            "id": 10,
+            "router": false,
+            "target": true,
+            "name": "攻防世界",
+            "url": "https://adworld.xctf.org.cn/home/index",
+            "params": { "url": "" }
+          },
+          {
+            "id": 11,
+            "router": true,
+            "target": true,
+            "name": "Live",
+            "url": "Live",
+            "params": { "url": "" }
+          },
+          {
+            "id": 12,
+            "router": true,
+            "target": true,
+            "name": "PaperEdit",
+            "url": "PaperEdit",
+            "params": { "url": "" }
+          },
+          {
+            "id": 13,
+            "router": true,
+            "target": true,
+            "name": "PaperViewFile",
+            "url": "AppPaperViewFile",
+            "params": { "url": "" }
+          },
+          {
+            "id": 14,
+            "router": false,
+            "target": true,
+            "name": "HTML 表格生成器",
+            "url": "https://www.jyshare.com/front-end/7688/",
+            "params": { "url": "" }
+          }
+        ]
+      }
+    ]
+  }
+]

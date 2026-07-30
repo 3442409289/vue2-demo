@@ -1,0 +1,393 @@
+:root {
+  --color1A: rgba(33, 15, 40, 0.5);
+  --color1B: rgb(33, 15, 40);
+  --color1C: rgba(222, 240, 215, 0.5);
+  --color1D: rgb(222, 240, 215);
+
+  --color2A: rgba(243, 138, 184, 0.5);
+  --color2B: rgb(243, 138, 184);
+  --color2C: rgba(12, 117, 71, 0.5);
+  --color2D: rgb(12, 117, 71);
+
+  --color3A: rgba(0, 140, 140, 0.5);
+  --color3B: rgb(0, 140, 140);
+  --color3C: rgba(255, 115, 115, 0.5);
+  --color3D: rgb(255, 115, 115);
+
+  --color4A: rgba(162, 43, 41, 0.5);
+  --color4B: rgb(162, 43, 41);
+  --color4C: rgba(93, 212, 214, 0.5);
+  --color4D: rgb(93, 212, 214);
+
+  --color5A: rgba(255, 140, 140, 0.5);
+  --color5B: rgb(255, 140, 140);
+  --color5C: rgba(0, 115, 115, 0.5);
+  --color5D: rgb(0, 115, 115);
+
+  --color6A: rgba(191, 171, 171, 0.5);
+  --color6B: rgb(191, 171, 171);
+  --color6C: rgba(64, 84, 84, 0.5);
+  --color6D: rgb(64, 84, 84);
+
+  --color7A: rgba(250, 235, 215, 0.5);
+  --color7B: rgb(250, 235, 215);
+  --color7C: rgba(5, 20, 40, 0.5);
+  --color7D: rgb(5, 20, 40);
+
+  --color8A: rgba(76, 0, 151, 0.5);
+  --color8B: rgb(76, 0, 151);
+  --color8C: rgba(179, 255, 104, 0.5);
+  --color8D: rgb(179, 255, 104);
+
+  --color8A: rgba(76, 0, 151, 0.5);
+  --color8B: rgb(76, 0, 151);
+  --color8C: rgba(179, 255, 104, 0.5);
+  --color8D: rgb(179, 255, 104);
+
+  --color9A: rgba(137, 102, 102, 0.5);
+  --color9B: rgb(137, 102, 102);
+  --color9C: rgba(118, 153, 153, 0.5);
+  --color9D: rgb(118, 153, 153);
+
+  --color10A: rgba(231, 27, 100, 0.5);
+  --color10B: rgb(231, 27, 100);
+  --color10C: rgba(24, 228, 155, 0.5);
+  --color10D: rgb(24, 228, 155);
+
+  --color11A: rgba(0, 47, 167, 0.5);
+  --color11B: rgb(0, 47, 167);
+  --color11C: rgba(255, 208, 88, 0.5);
+  --color11D: rgb(255, 208, 88);
+
+  --color12A: rgba(205, 0, 0, 0.5);
+  --color12B: rgb(205, 0, 0);
+  --color12C: rgba(50, 255, 255, 0.5);
+  --color12D: rgb(50, 255, 255);
+
+  --width1A: 150px;
+  --width1B: 50%;
+  --width1C: 33.33%;
+  --width1D: 25%;
+  --width1E: 100%;
+
+  --border_width1A: 2px;
+
+  --scrollbar: 5px;
+
+  --time1A: 0.1s;
+  --time2A: 0.5s;
+  --time3A: 1s;
+  --time4A: 2s;
+
+  --opacity1A1: 0.5;
+  --opacity1A2: 1;
+
+  --vague1A1: 1px;
+  --vague1A2: 5px;
+
+  --black_and_white1A1: 0;
+  --black_and_white1A2: 1;
+
+  --width2A1: 300px;
+  --width2A2: -300px;
+
+  --PageView_left1: 5px;
+  --PageView_left2: 50px;
+  --PageView_right1: 5px;
+  --PageView_right2: 50px;
+
+  --PageVidw_L1: calc(100% - calc(100% - var(--PageView_left1)));
+  --PageVidw_L2: calc(100% - calc(100% - var(--PageView_left2)));
+  --PageVidw_R1: calc(100% - calc(100% - var(--PageView_right1)));
+  --PageVidw_R2: calc(100% - calc(100% - var(--PageView_right2)));
+
+  --PageVidw_V1: calc(100% - var(--PageView_left1) - var(--PageView_right1));
+  --PageVidw_V2: calc(100% - var(--PageView_left2) - var(--PageView_right2));
+  --PageVidw_V3: calc(100% - var(--PageView_left2) - var(--PageView_right1));
+  --PageVidw_V4: calc(100% - var(--PageView_left1) - var(--PageView_right2));
+
+  --image1A: url(@/image/1_0.png);
+  --image2A: url(@/image/2_0.jpg);
+  --cursor1A: url(@/cursor/icon.png), auto;
+
+  --Gcolor: rgba(0, 0, 0, 0);
+  --Gcolor1A: rgba(13, 189, 231, 0.5);
+  --Gcolor1B: rgba(237, 17, 167, 0.5);
+  --Gcolor1C: rgba(0, 0, 0, 0.5);
+  --Gcolor1D: rgba(255, 255, 255, 0.5);
+  --Gcolor1E: rgba(177, 150, 243, 1);
+
+  --gradient1A: linear-gradient(180deg, var(--Gcolor1A), var(--Gcolor1B));
+  --gradient1B: linear-gradient(180deg, var(--Gcolor1B), var(--Gcolor1C));
+  --gradient1C: linear-gradient(180deg, var(--Gcolor1C), var(--Gcolor1D));
+  --gradient1D: linear-gradient(180deg, var(--Gcolor1D), var(--Gcolor1A));
+
+  --gradient2A: linear-gradient(90deg, var(--Gcolor1A), var(--Gcolor1B));
+  --gradient2B: linear-gradient(90deg, var(--Gcolor1B), var(--Gcolor1C));
+  --gradient2C: linear-gradient(90deg, var(--Gcolor1C), var(--Gcolor1D));
+  --gradient2D: linear-gradient(90deg, var(--Gcolor1D), var(--Gcolor1A));
+  --gradient2D: linear-gradient(90deg, var(--Gcolor1A), var(--Gcolor1E));
+
+  --Current-Font: "MyFont1"; /*当前字体*/
+
+  --Layout-LeftOfRightPadding: 10em;
+}
+
+:root {
+  /*开灯背景颜色和字体颜色*/
+  --bg-color1: #0000;
+  --bg-color2: var(--color9B);
+  --bg-color3: var(--color6B);
+  --bg-color4: var(--color7B);
+  --bg-color5: var(--color3B);
+  --bg-color6: var(--color2B);
+
+  --bg-color2A: var(--color9A);
+  --bg-color3A: var(--color6A);
+  --bg-color4A: var(--color7A);
+  --bg-color5A: var(--color3A);
+  --bg-color6A: var(--color2A);
+  --bg-color7A: var(--color1A);
+
+  --bg-color5B: var(--color12D);
+  --bg-color6B: var(--color12B);
+
+  --bg-gradient1A: var(--gradient2D);
+
+  --text-color: #18191c;
+  --text-color2: var(--color8B);
+
+  --Effect-Color: #000;
+}
+
+.dark-mode {
+  /*关灯背景颜色和字体颜色*/
+  --bg-color1: #12121280;
+  --bg-color2: #12121280;
+  --bg-color3: #12121280;
+  --bg-color4: #12121280;
+  --bg-color5: #12121280;
+  --bg-color6: #12121280;
+
+  --bg-color2A: #12121280;
+  --bg-color3A: #12121280;
+  --bg-color4A: #12121280;
+  --bg-color5A: #12121280;
+  --bg-color6A: #12121280;
+  --bg-color7A: var(--color6A);
+
+  --bg-color5B: var(--color12B);
+  --bg-color6B: var(--color12D);
+
+  --bg-gradient1A: #12121280;
+
+  --text-color: #e7e9eb;
+  --text-color2: #e7e9eb;
+
+  --Effect-Color: #fff;
+}
+
+:root {
+  --bg-opacity: 1;
+  --text-luminescence: none;
+}
+
+.bg-opacity {
+  --bg-opacity: 0;
+}
+
+.text-luminescence {
+  --text-luminescence: var(--color11C);
+}
+
+@font-face {
+  font-family: "MyFont1";
+  src: url("@/fonts/MyFont1.woff2") format("woff2"),
+    url("@/fonts/MyFont1.woff") format("woff");
+  font-display: swap;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  cursor: var(--cursor1A);
+  font-family: var(--Current-Font);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar);
+  height: var(--scrollbar);
+  background: var(--color3B);
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--color2B);
+}
+
+::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color3A);
+}
+
+.layout {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 769px) {
+  .layout {
+    padding: 4em calc(50% - 457px + 2em);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .layout {
+    padding: 4em 1em;
+  }
+}
+
+/* 修复手机端在宽度小于420px的情况下ElementUI出现的Bug */
+.el-message-box__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input,
+div {
+  font-family: var(--Current-Font);
+}
+
+[button] {
+  font-family: var(--Current-Font);
+  min-height: 50px;
+  width: auto;
+  user-select: auto;
+  display: flex;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-color);
+  border: var(--border_width1A) solid var(--bg-color6B);
+  background-color: var(--bg-color1);
+  transform-origin: center;
+  transition: 0.2s;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  letter-spacing: 0.1em;
+}
+
+[button]::before {
+  transition: 0.3s;
+  position: absolute;
+  content: "";
+  top: calc(var(--border_width1A) * -1);
+  left: 75%;
+  width: 15%;
+  background-color: var(--bg-color5B);
+  height: var(--border_width1A);
+  transform: skewX(-50deg);
+}
+
+[button]::after {
+  transition: 0.3s;
+  position: absolute;
+  content: "";
+  bottom: calc(var(--border_width1A) * -1);
+  left: 20%;
+  width: 15%;
+  background-color: var(--bg-color5B);
+  height: var(--border_width1A);
+  transform: skewX(-50deg);
+}
+
+[button]:hover {
+  color: var(--bg-color5B);
+  border: var(--border_width1A) solid var(--bg-color6B);
+}
+
+[button]:hover::before {
+  left: 20%;
+}
+
+[button]:hover::after {
+  left: 75%;
+}
+
+[button]:active {
+  background-color: var(--color3B);
+  transform: scale(0.95) translateZ(0);
+}
+
+/* =========================
+   圆形按钮
+   ========================= */
+[circle-btn] {
+  --_size: 54px;
+  --_border: 2px;
+
+  position: relative;
+  width: var(--_size);
+  height: var(--_size);
+  border-radius: 50%;
+  border: var(--_border) solid var(--bg-color6B);
+
+  background: var(--bg-color1);
+  color: var(--text-color);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--Current-Font);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+[circle-btn]:hover {
+  color: var(--bg-color5B);
+}
+
+/* =========================
+     边框轨道上的高亮段
+     ========================= */
+[circle-btn]::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--_border) * -1);
+  border-radius: 50%;
+
+  border: var(--_border) solid transparent;
+  border-top-color: var(--bg-color5B);
+
+  transition: transform 0.6s ease;
+  transform: rotate(45deg);
+}
+
+/* =========================
+     Hover：转一圈
+     ========================= */
+[circle-btn]:hover::before {
+  transform: rotate(405deg); /* 45 + 360 */
+}
