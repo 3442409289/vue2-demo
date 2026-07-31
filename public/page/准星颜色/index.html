@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./colorlibrary.css">
+    <style>
+        input[type="color" i] {
+            height: 100%;
+            border: 0;
+            padding: 0;
+            background-color: #0000;
+        }
+
+        button {
+            height: 40px;
+            background-color: #0000;
+            border: 1px solid #0000;
+            box-sizing: border-box;
+            transition: 0.1s;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+
+        button:hover {
+            border: 1px solid #000;
+        }
+
+        #main {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #menu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #menu:hover .up_button {
+            height: 40px;
+            background-color: rgb(243, 138, 184);
+        }
+
+        #menu .list {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            overflow: hidden;
+            transition: 0.1s;
+        }
+
+        #menu .up_button {
+            height: 5px;
+            cursor: pointer;
+            background-color: #008c8c;
+            transition: 0.1s;
+        }
+
+        #button {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            background: rgb(0, 140, 140);
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        #button:hover {
+            background: rgb(243, 138, 184);
+        }
+
+        #type1 {
+            width: 150px;
+            height: 10px;
+            margin: 200px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        #type1 .left {
+            width: 10px;
+            height: 2px;
+        }
+
+        #type1 .mid {
+            width: 6px;
+            height: 6px;
+        }
+
+        #type1 .right {
+            width: 10px;
+            height: 2px;
+        }
+
+        #type2 {
+            width: 150px;
+            height: 10px;
+            margin: 200px auto;
+            display: none;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        #type2 .left {
+            width: 10px;
+            height: 10px;
+        }
+
+        #type2 .mid {
+            width: 10px;
+            height: 2px;
+        }
+
+        #type2 .right {
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="menu">
+            <div id="list" class="list"></div>
+            <div class="up_button" onclick="test2(this)" key="1"></div>
+        </div>
+        <button id="button" onclick="test()" key="0">切换</button>
+        <div id="type1">
+            <div class="left"></div>
+            <div class="mid"></div>
+            <div class="right"></div>
+        </div>
+        <div id="type2">
+            <div class="left"></div>
+            <div class="mid"></div>
+            <div class="right"></div>
+        </div>
+    </div>
+    <script>
+        var type1 = document.getElementById('type1');
+        var type2 = document.getElementById('type2');
+        var button = document.getElementById('button');
+        var list = document.getElementById('list');
+
+        var list_height = 0;
+        var str_arr = [];
+        for (let index = 0; index < 21; index++) {
+            str_arr[index] = '--xr_color_' + (index + 1);
+        }
+
+        init();
+        var arr = [];
+        for (let index = 0; index < str_arr.length; index++) {
+            arr[index] = create_dom("button", 'xr_list', index, '');
+            add_class(arr[index], 'style', 'background-color:var(' + str_arr[index] + ');');
+            arr[index].onclick = function (e) {
+                var color = str_arr[Number(e.srcElement.getAttribute('xr_list'))];
+                if (button.getAttribute('key') === '0') {
+                    for (let index = 0; index < type1.children.length; index++) {
+                        type1.children[index].style.backgroundColor = 'var(' + color + ')';
+                    }
+                } else {
+                    for (let index = 0; index < type2.children.length; index++) {
+                        type2.children[index].style.backgroundColor = 'var(' + color + ')';
+                    }
+                }
+            }
+            add_class(arr[index], 'style', 'height: 40px;');
+            add_dom(list, arr[index]);
+            arr[index].innerHTML = rgbToHex(window.getComputedStyle(arr[index]).backgroundColor);
+        }
+
+        arr[str_arr.length] = create_dom("button", 'xr_list', str_arr.length, '');
+        var input_color = create_dom('input', 'type', 'color', '');
+        add_dom(arr[str_arr.length], input_color);
+        arr[str_arr.length].onclick = function (e) {
+            if (button.getAttribute('key') === '0') {
+                for (let index = 0; index < type1.children.length; index++) {
+                    type1.children[index].style.backgroundColor = input_color.value;
+                }
+            } else {
+                for (let index = 0; index < type2.children.length; index++) {
+                    type2.children[index].style.backgroundColor = input_color.value;
+                }
+            }
+        }
+
+
+        add_class(arr[str_arr.length], 'style', 'height: 40px;');
+        add_dom(list, arr[str_arr.length]);
+
+        list_height = arr.length * 40;
+        list_height = 240;
+        add_class(list, 'style', 'height: 0px;');
+
+        function random(arr) {
+            //随机数组值
+            var min = 0;
+            var max = arr.length - 1;
+            var randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+            return arr[randomInt];
+        }
+
+        function init() {
+            var color = random(str_arr);
+            for (let index = 0; index < type1.children.length; index++) {
+                type1.children[index].style.backgroundColor = 'var(' + color + ')';
+            }
+            var color = random(str_arr);
+            for (let index = 0; index < type2.children.length; index++) {
+                type2.children[index].style.backgroundColor = 'var(' + color + ')';
+            }
+        }
+
+        function test() {
+            if (button.getAttribute('key') === '0') {
+                type1.style.display = 'none';
+                type2.style.display = 'flex';
+                button.setAttribute('key', '1');
+            } else {
+                type1.style.display = 'flex';
+                type2.style.display = 'none';
+                button.setAttribute('key', '0');
+            }
+        }
+
+        function test2(e) {
+            if (e.getAttribute('key') === '0') {
+                list.style.height = '0px';
+                e.setAttribute('key', '1');
+            } else {
+                list.style.height = list_height + 'px';
+                e.setAttribute('key', '0');
+            }
+        }
+
+        function rgbToHex(color) {
+            if (color.startsWith('rgb(')) {
+                let parts = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                delete (parts[0]);
+                for (let i = 1; i <= 3; ++i) {
+                    parts[i] = parseInt(parts[i]).toString(16);
+                    if (parts[i].length === 1) parts[i] = '0' + parts[i];
+                }
+                return '#' + parts.join('');
+            } else if (color.startsWith('#')) {
+                return color;
+            } else {
+                return bgColor; // 如果颜色已经是十六进制，则直接返回
+            }
+        }
+
+        function create_dom(create_dom, dom_class, class_value, value) {
+            // 创建元素
+            var newElement = document.createElement(create_dom);
+
+            // 设置元素属性
+            newElement.setAttribute(dom_class, class_value);
+            newElement.innerHTML = value;
+
+            return newElement;
+        }
+
+        function add_class(dom, dom_class, class_value) {
+            if (dom.getAttribute(dom_class)) {
+                dom.setAttribute(dom_class, dom.getAttribute(dom_class) + class_value);
+            } else {
+                dom.setAttribute(dom_class, class_value);
+            }
+        }
+
+        function add_dom(dom, add_dom) {
+            dom.appendChild(add_dom);
+        }
+    </script>
+</body>
+
+</html>
