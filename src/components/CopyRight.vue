@@ -5,12 +5,22 @@
     @mouseout="$emit('hover_end')"
     @click="$emit('active')"
   >
-    {{ `COPYRIGHT © 2021 - ${getyear} XIANREN. ALL RIGHTS RESERVED.` }}
+    {{ `COPYRIGHT © ${year} - ${getyear} ${text}. ALL RIGHTS RESERVED.` }}
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    text: {
+      type: String,
+      default: "XINGXING",
+    },
+    year: {
+      type: Number,
+      default: 2021,
+    },
+  },
   computed: {
     getyear() {
       var date = new Date();

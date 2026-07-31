@@ -191,6 +191,7 @@ router.beforeEach(async (to, from, next) => {
     await Store.dispatch("auth/initializeAuth"); // 使用 await
 
     const isAuthenticated = Store.getters["auth/isAuthenticated"];
+
     // ... 其余检查逻辑保持不变，确保每个分支调用一次 next() 并用 return
     if (to.meta.requiresAuth && !isAuthenticated) {
       next({ name: "Login" });

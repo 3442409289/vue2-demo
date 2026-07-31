@@ -3,29 +3,31 @@ import api from "@/utils/api";
 import { Message } from "element-ui"; // 新增导入
 
 const state = {
-  token: localStorage.getItem("token") || "",
-  user: JSON.parse(localStorage.getItem("user")) || null,
-  isAuthenticated: !!localStorage.getItem("token"),
-  userPermissions: JSON.parse(localStorage.getItem("userPermissions")) || [], // 初始化为空数组
-  tokenCheckIntervalId: null, // 新增，用于保存定时器ID
+  token: sessionStorage.getItem("token") || localStorage.getItem("token") || "",
+  user: JSON.parse(
+    sessionStorage.getItem("user") || localStorage.getItem("user") || "null"
+  ),
+  isAuthenticated: !!(
+    sessionStorage.getItem("token") || localStorage.getItem("token")
+  ),
+  userPermissions: JSON.parse(
+    sessionStorage.getItem("userPermissions") ||
+      localStorage.getItem("userPermissions") ||
+      "[]"
+  ),
+  tokenCheckIntervalId: null,
 };
 
 const mutations = {
   SET_TOKEN(state, token) {
     state.token = token;
     state.isAuthenticated = true;
-    // 保存到localStorage
-    localStorage.setItem("token", token);
   },
   SET_USER_PERMISSIONS(state, permissions) {
     state.userPermissions = permissions;
-    // 保存到localStorage
-    localStorage.setItem("userPermissions", JSON.stringify(permissions));
   },
   SET_USER(state, user) {
     state.user = user;
-    // 保存到localStorage
-    localStorage.setItem("user", JSON.stringify(user));
   },
   LOGOUT(state) {
     state.token = "";
@@ -44,19 +46,17 @@ const mutations = {
   },
 };
 
-function safeParseLocalStorage(key, defaultValue = null) {
-  const item = localStorage.getItem(key);
-  // 检查是否为 null 或空字符串
-  if (item === null || item.trim() === "") {
-    return defaultValue;
-  }
+function safeParseStorage(storage, key, defaultValue = null) {
   try {
+    const item = storage.getItem(key);
+    if (item === null || item.trim() === "") {
+      return defaultValue; // 返回 null 而不是 defaultValue
+    }
     return JSON.parse(item);
   } catch (error) {
-    console.error(`解析 localStorage 项 "${key}" 时出错:`, error);
-    // 可选：移除损坏的数据以避免后续错误
-    localStorage.removeItem(key);
-    return defaultValue;
+    console.error(`解析 ${key} 时出错:`, error);
+    storage.removeItem(key);
+    return defaultValue; // 返回 null 而不是 defaultValue
   }
 }
 
@@ -64,8 +64,26 @@ const actions = {
   async login({ commit, dispatch }, credentials) {
     try {
       const response = await api.post("/login/index.php", credentials);
-
       const { token, user } = response.data;
+
+      // 根据 rememberMe 决定存储方式
+      if (credentials.rememberMe) {
+        // 记住我 → 存 localStorage（关闭浏览器不清除）
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem(
+          "userPermissions",
+          JSON.stringify(user.permissions)
+        );
+      } else {
+        // 不记住 → 存 sessionStorage（关闭标签页/浏览器就清除）
+        sessionStorage.setItem("token", token);
+        sessionStorage.setItem("user", JSON.stringify(user));
+        sessionStorage.setItem(
+          "userPermissions",
+          JSON.stringify(user.permissions)
+        );
+      }
 
       // 提交mutation
       commit("SET_TOKEN", token);
@@ -87,26 +105,35 @@ const actions = {
   logout({ commit, dispatch }) {
     dispatch("stopTokenCheck"); // 停止轮询
 
-    // 清除localStorage
+    // 清除所有存储
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("userPermissions");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("userPermissions");
 
     // 提交mutation
     commit("LOGOUT");
   },
 
   initializeAuth({ commit, dispatch }) {
-    const token = localStorage.getItem("token");
-    const user = safeParseLocalStorage("user", null);
-    const permissions = safeParseLocalStorage("userPermissions", []);
+    const token =
+      sessionStorage.getItem("token") || localStorage.getItem("token");
+
+    const user =
+      safeParseStorage(sessionStorage, "user", null) ??
+      safeParseStorage(localStorage, "user", null);
+
+    const permissions =
+      safeParseStorage(sessionStorage, "userPermissions", null) ??
+      safeParseStorage(localStorage, "userPermissions", []) ??
+      [];
 
     if (token) {
       commit("SET_TOKEN", token);
       commit("SET_USER", user);
-      commit("SET_USER_PERMISSIONS", permissions); // 设置权限
-
-      // 初始化时如果存在token，也启动检查
+      commit("SET_USER_PERMISSIONS", permissions);
       dispatch("startTokenCheck");
     }
   },

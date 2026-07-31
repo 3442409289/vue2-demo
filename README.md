@@ -1,4 +1,4 @@
-# xianren-app
+# xingxing-app
 
 ## Project setup
 ```

@@ -110,6 +110,7 @@ export default {
         await this.login({
           username: this.form.username,
           password: this.form.password,
+          rememberMe: this.form.rememberMe,
         });
         const redirect = this.$route.query.redirect || "/";
         this.$router.push(redirect);
