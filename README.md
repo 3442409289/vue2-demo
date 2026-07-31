@@ -1,4 +1,4 @@
-# bili-app
+# xianren-app
 
 ## Project setup
 ```
