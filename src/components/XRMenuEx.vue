@@ -4,18 +4,9 @@
       <slot></slot>
     </div>
     <div class="menu-item">
-      <el-popover
-        placement="bottom"
-        :title="UserInfo !== undefined ? UserInfo.username : '未登录'"
-        trigger="click"
-        :close-delay="800"
-        :visible-arrow="false"
-        popper-class="popover-content"
-        transition="el-zoom-in-top"
-      >
-        <!-- 动态内容区域 -->
-        <template slot:content>
-          <div>
+      <Container :title="UserInfo !== undefined ? UserInfo.username : '未登录'">
+        <template v-slot:main>
+          <div style="min-width: 150px">
             <!-- 登录状态显示 -->
             <template v-if="UserInfo">
               <el-button
@@ -42,10 +33,12 @@
             </template>
           </div>
         </template>
-        <ItemEx slot="reference" class="text">{{
-          UserInfo !== undefined ? "用户" : "登录"
-        }}</ItemEx>
-      </el-popover>
+        <template v-slot:button>
+          <ItemEx class="text">{{
+            UserInfo !== undefined ? "用户" : "登录"
+          }}</ItemEx>
+        </template>
+      </Container>
     </div>
   </div>
 </template>
@@ -54,10 +47,12 @@
 import { mapActions } from "vuex";
 import Store from "@/store"; // 确保路径正确
 import ItemEx from "@/components/ItemEx";
+import Container from "@/components/Container";
 import { Message } from "element-ui"; // 新增导入
 export default {
   components: {
     ItemEx,
+    Container,
   },
   data() {
     return {};

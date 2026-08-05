@@ -11,25 +11,19 @@
     </div>
     <div class="actions">
       <div class="action-item">
-        <el-popover
-          placement="bottom"
-          trigger="click"
-          :close-delay="800"
-          :visible-arrow="false"
-          popper-class="popover-content"
-          transition="el-zoom-in-top"
-        >
-          <!-- 动态内容区域 -->
-          <template slot:content>
-            <div>
+        <Container>
+          <template v-slot:main>
+            <div style="width: 150px">
               <el-slider
                 v-model="sliderValue"
                 @input="handleSliderChange"
               ></el-slider>
             </div>
           </template>
-          <ItemEx slot="reference" class="text">音量</ItemEx>
-        </el-popover>
+          <template v-slot:button>
+            <ItemEx class="text">音量</ItemEx>
+          </template>
+        </Container>
       </div>
       <div class="action-item">
         <Loading v-if="isLoading" :size="25" style="position: relative" />
@@ -38,24 +32,18 @@
         }}</ItemEx>
       </div>
       <div class="action-item">
-        <el-popover
-          placement="bottom"
-          trigger="click"
-          :close-delay="800"
-          :visible-arrow="false"
-          popper-class="popover-content"
-          transition="el-zoom-in-top"
-        >
-          <!-- 动态内容区域 -->
-          <template slot:content>
+        <Container>
+          <template v-slot:main>
             <div class="list">
               <ItemEx v-for="(item, i) in data" :key="i" @click="action(i)">
                 {{ item.url.split("/").pop() }}
               </ItemEx>
             </div>
           </template>
-          <ItemEx slot="reference" class="text">列表</ItemEx>
-        </el-popover>
+          <template v-slot:button>
+            <ItemEx class="text">列表</ItemEx>
+          </template>
+        </Container>
       </div>
     </div>
     <audio
@@ -74,10 +62,12 @@
 <script>
 import ItemEx from "@/components/ItemEx";
 import Loading from "@/components/Loading";
+import Container from "@/components/Container";
 export default {
   components: {
     ItemEx,
     Loading,
+    Container,
   },
   props: {
     data: {

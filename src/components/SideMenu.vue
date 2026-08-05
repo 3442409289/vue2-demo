@@ -23,11 +23,22 @@
         :icon="item.icon"
         @active="$emit('active', { id: item.id, array: data })"
       />
-      <Container
-        v-else-if="item.childmenu !== undefined"
-        :data="item.childmenu"
-        @active="$emit('active', $event)"
-      />
+      <Container v-else-if="item.childmenu !== undefined">
+        <template v-slot:main>
+          <div>
+            <SideMenuButton
+              v-for="(menu, i) in item.childmenu"
+              :key="i"
+              :data="menu.name"
+              :icon="menu.icon"
+              @active="menu.action(i)"
+            />
+          </div>
+        </template>
+        <template v-slot:button>
+          <SideMenuButton data="更多" />
+        </template>
+      </Container>
     </div>
   </div>
 </template>
@@ -35,10 +46,12 @@
 <script>
 import SideMenuButton from "./SideMenuButton";
 import Container from "./Container";
+import ItemEx from "./ItemEx";
 export default {
   components: {
     SideMenuButton,
     Container,
+    ItemEx,
   },
   props: {
     data: {
