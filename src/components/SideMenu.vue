@@ -23,9 +23,9 @@
         :icon="item.icon"
         @active="$emit('active', { id: item.id, array: data })"
       />
-      <Container v-else-if="item.childmenu !== undefined">
+      <Container trigger="hover" v-else-if="item.childmenu !== undefined">
         <template v-slot:main>
-          <div>
+          <div class="list">
             <SideMenuButton
               v-for="(menu, i) in item.childmenu"
               :key="i"
@@ -100,6 +100,15 @@ export default {
 
 .side-menu .side-menu-item {
   transition: opacity 0.3s ease;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list div {
+  flex: 0 0 calc(100% / 3); /* 每行3个 */
 }
 
 @media screen and (min-width: 769px) {

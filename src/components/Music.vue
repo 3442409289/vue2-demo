@@ -11,7 +11,7 @@
     </div>
     <div class="actions">
       <div class="action-item">
-        <Container>
+        <Container trigger="hover">
           <template v-slot:main>
             <div style="width: 150px">
               <el-slider
@@ -32,7 +32,7 @@
         }}</ItemEx>
       </div>
       <div class="action-item">
-        <Container>
+        <Container trigger="hover">
           <template v-slot:main>
             <div class="list">
               <ItemEx v-for="(item, i) in data" :key="i" @click="action(i)">
@@ -406,7 +406,14 @@ export default {
   /* 保持原有样式 */
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .list div {
+  width: auto;
   margin: 10px 0;
 }
 

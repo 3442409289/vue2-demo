@@ -1,8 +1,8 @@
 <template>
   <div>
     <el-popover
-      placement="top"
-      trigger="click"
+      :placement="placement"
+      :trigger="trigger"
       :close-delay="800"
       :visible-arrow="false"
       popper-class="popover-content"
@@ -22,6 +22,14 @@ export default {
     title: {
       type: String,
       default: "",
+    },
+    trigger: {
+      type: String,
+      default: "click",
+    },
+    placement: {
+      type: String,
+      default: "top",
     },
   },
 };
