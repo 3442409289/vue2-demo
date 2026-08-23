@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="xr-start-main" v-else>
-      <ItemEx @click="action">进入主页菜单</ItemEx>
+      <ItemEx @click="action" :fontSize="24">进入主页菜单</ItemEx>
     </div>
   </div>
 </template>

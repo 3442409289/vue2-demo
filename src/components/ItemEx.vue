@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @click="handleClick">
+  <div class="item" :style="{ fontSize: `${fontSize}px` }" @click="handleClick">
     <!-- 插槽 -->
     <slot></slot>
   </div>
@@ -7,6 +7,11 @@
 
 <script>
 export default {
+  props: {
+    fontSize: {
+      type: Number,
+    },
+  },
   methods: {
     handleClick() {
       this.$emit("click");
