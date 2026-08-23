@@ -104,7 +104,7 @@ export default {
       xr_data: undefined,
       is_love: false,
       is_animation: false,
-      animation: false,
+      animation: true,
       showSideMenu: false,
       items1: undefined,
       items2: undefined,
@@ -115,6 +115,16 @@ export default {
   },
   async created() {
     await this.InitData();
+  },
+  watch: {
+    // 监听路由变化（页面切换时触发）
+    $route(to, from) {
+      if (to.name === "AppMain") {
+        this.animation = true;
+      } else {
+        this.animation = false;
+      }
+    },
   },
   methods: {
     async InitData() {
@@ -181,7 +191,11 @@ export default {
     },
     hover_end() {
       this.$emit("hover_end");
-      this.animation = false;
+      if (this.$route.name === "AppMain") {
+        this.animation = true;
+      } else {
+        this.animation = false;
+      }
       this.is_love = false;
       this.$globalSwitch.BgOpacity.toggle();
     },

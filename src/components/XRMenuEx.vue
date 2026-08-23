@@ -96,7 +96,7 @@ export default {
 <style scoped>
 .menu {
   width: 100%;
-  height: 50px;
+  height: 36px;
   display: flex;
   z-index: 2;
   background: var(--bg-color4A);

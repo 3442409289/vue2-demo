@@ -36,7 +36,7 @@ export default {
   color: var(--text-color);
   border: var(--border_width1A) solid var(--bg-color6B);
   box-sizing: border-box;
-  padding: 10px 10px;
+  padding: 6px;
   letter-spacing: 0.1em;
   border-radius: 10px;
   user-select: none;
