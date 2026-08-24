@@ -133,6 +133,7 @@ export default {
       const baseUrl = window.location.protocol + "//" + window.location.host;
 
       const cacheKey = "music_data";
+      const cacheKey2 = "RectifyAndReform";
       const cachedData = await this.getLargeSessionStorage(cacheKey);
 
       if (cachedData) {
@@ -162,6 +163,7 @@ export default {
         this.$XR_version(this.xr_data.vue_version);
       }
 
+      sessionStorage.setItem(cacheKey2, this.xr_data.is_show);
       document.title = this.xr_data.title;
       this.Loading = false;
     },

@@ -103,6 +103,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   overflow-x: auto;
+  overflow-y: hidden;
   gap: 10px;
 }
 .menu .menu-item {
